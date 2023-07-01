@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="BackgroundColor">#141414</Color>
+    <Color x:Key="ForegroundColor">#D0D0D0</Color>
+    <Color x:Key="BackgroundLayoutColor">#000</Color>
+    <SolidColorBrush x:Key="ForegroundSolidColorBrush" Color="{DynamicResource ForegroundColor}"/>
+    <SolidColorBrush x:Key="BackgroundSolidColorBrush" Color="{DynamicResource BackgroundColor}"/>
+    <SolidColorBrush x:Key="BackgroundLayoutSolidColorBrush" Color="{DynamicResource BackgroundLayoutColor}"/>
+</ResourceDictionary>

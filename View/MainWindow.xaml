@@ -1,0 +1,30 @@
+﻿<Window x:Class="View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="ChatsDataTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Chats}" ItemTemplate="{StaticResource ChatsDataTemplate}"
+                 SelectedItem="{Binding SelectedChat}" Grid.Column="0"
+                 Background="{StaticResource BackgroundSolidColorBrush}"
+                 Foreground="{StaticResource ForegroundSolidColorBrush}"/>
+        <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
+                      HorizontalAlignment="Center" VerticalAlignment="Stretch"
+                      Background="{StaticResource ForegroundSolidColorBrush}"/>
+        <local:ChatControl Chat="{Binding SelectedChat}" CurrentContact="{Binding CurrentContact}"
+                           Grid.Column="2"/>
+    </Grid>
+</Window>
