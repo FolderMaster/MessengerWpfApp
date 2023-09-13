@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-using Model;
+using Model.Messenger.Chats;
+using Model.Messenger.Contacts;
 
-namespace View
+namespace View.Controls
 {
     public partial class ChatControl : UserControl
     {
@@ -26,9 +14,9 @@ namespace View
             set => SetValue(ChatProperty, value);
         }
 
-        public Contact CurrentContact
+        public IContact CurrentContact
         {
-            get => (Contact)GetValue(CurrentContactProperty);
+            get => (IContact)GetValue(CurrentContactProperty);
             set => SetValue(CurrentContactProperty, value);
         }
 
@@ -36,7 +24,7 @@ namespace View
             typeof(IChat), typeof(ChatControl));
 
         private static DependencyProperty CurrentContactProperty =
-            DependencyProperty.Register(nameof(CurrentContact), typeof(Contact),
+            DependencyProperty.Register(nameof(CurrentContact), typeof(IContact),
                 typeof(ChatControl));
 
         public ChatControl()
